@@ -126,10 +126,6 @@ app "frontend" {
     "env"     = "dev"
   }
 
-  url {
-    auto_hostname = false
-  }
-
   build {
     use "docker-pull" {
       image = "hashicorpdemoapp/frontend"
