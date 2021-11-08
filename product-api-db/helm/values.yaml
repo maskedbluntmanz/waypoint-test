@@ -1,6 +1,6 @@
 image:
-  repository: ""
-  tag: ""
+  repository: "hashicorpdemoapp/product-api-db"
+  tag: "v0.0.17"
   pullPolicy: IfNotPresent
   pullSecrets: null
 

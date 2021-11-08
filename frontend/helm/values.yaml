@@ -1,6 +1,6 @@
 image:
-  repository: ""
-  tag: ""
+  repository: "hashicorpdemoapp/frontend"
+  tag: "v0.0.5"
   pullPolicy: IfNotPresent
   pullSecrets: null
 

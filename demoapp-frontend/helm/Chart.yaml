@@ -1,6 +1,0 @@
-apiVersion: v2
-name: demoapp-frontend
-description: Helm chart for Demo App frontend
-type: application
-version: 0.1.0
-appVersion: "1.0.0"
