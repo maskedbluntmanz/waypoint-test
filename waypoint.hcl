@@ -43,12 +43,13 @@ app "product-api-db" {
     auto_hostname = false
   }
 
-  build {
-    use "docker-pull" {
-      image = "hashicorpdemoapp/product-api-db"
-      tag   = "v0.0.17"
-    }
-  }
+  build {}
+  // build {
+  //   use "docker-pull" {
+  //     image = "hashicorpdemoapp/product-api-db"
+  //     tag   = "v0.0.17"
+  //   }
+  // }
 
   deploy {
     use "helm" {
