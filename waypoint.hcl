@@ -35,7 +35,7 @@ app "public-api" {
 
 app "product-api-db" {
   labels = {
-    "service" = "public-api",
+    "service" = "product-api-db",
     "env"     = "dev"
   }
 
