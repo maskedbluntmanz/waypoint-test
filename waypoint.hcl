@@ -24,6 +24,7 @@ app "public-api" {
     use "helm" {
       name  = app.name
       chart = "${path.app}/public-api/helm"
+      namespace = "hashicups"
 
       // We use a values file so we can set the entrypoint environment
       // variables into a rich YAML structure. This is easier than --set
@@ -56,6 +57,7 @@ app "product-api-db" {
     use "helm" {
       name  = app.name
       chart = "${path.app}/product-api-db/helm"
+      namespace = "hashicups"
 
       values = [
         file(templatefile("${path.app}/product-api-db/helm/values.yaml")),
@@ -86,6 +88,7 @@ app "product-api" {
     use "helm" {
       name  = app.name
       chart = "${path.app}/product-api/helm"
+      namespace = "hashicups"
 
       values = [
         file(templatefile("${path.app}/product-api/helm/values.yaml")),
@@ -116,6 +119,7 @@ app "payments" {
     use "helm" {
       name  = app.name
       chart = "${path.app}/payments/helm"
+      namespace = "hashicups"
 
       values = [
         file(templatefile("${path.app}/payments/helm/values.yaml")),
@@ -142,6 +146,7 @@ app "frontend" {
     use "helm" {
       name  = app.name
       chart = "${path.app}/frontend/helm"
+      namespace = "hashicups"
 
       values = [
         file(templatefile("${path.app}/frontend/helm/values.yaml")),
