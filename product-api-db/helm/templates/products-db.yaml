@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: hashicorpdemoapp/product-api-db:v0.0.17
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           ports:
             - containerPort: 5432
           env:

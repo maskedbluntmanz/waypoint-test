@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: public-api
-          image: hashicorpdemoapp/public-api:v0.0.5 #localhost:5000/
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }} #localhost:5000/
           ports:
             - containerPort: 8080
           env:

@@ -70,7 +70,7 @@ spec:
             path: conf.json
       containers:
         - name: products-api
-          image: hashicorpdemoapp/product-api:v0.0.17 #localhost:5000/
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }} #localhost:5000/
           ports:
             - containerPort: 9090
             - containerPort: 9103
