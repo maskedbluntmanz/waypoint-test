@@ -133,7 +133,7 @@ app "frontend" {
   build {
     use "docker-pull" {
       image = "hashicorpdemoapp/frontend"
-      tag   = "v0.0.7"
+      tag   = "v0.0.5"
       disable_entrypoint = true
     }
   }
