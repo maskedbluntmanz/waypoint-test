@@ -33,3 +33,119 @@ app "public-api" {
     }
   }
 }
+
+app "product-api-db" {
+  labels = {
+    "service" = "product-api-db",
+    "env"     = "dev"
+  }
+
+  url {
+    auto_hostname = false
+  }
+
+  build {
+    use "docker-pull" {
+      image = "hashicorpdemoapp/product-api-db"
+      tag   = "v0.0.19"
+      disable_entrypoint = true
+    }
+  }
+
+  deploy {
+    use "helm" {
+      name  = app.name
+      chart = "${path.app}/product-api-db/helm"
+
+      values = [
+        file(templatefile("${path.app}/product-api-db/helm/values.yaml")),
+      ]
+    }
+  }
+}
+
+app "product-api" {
+  labels = {
+    "service" = "product-api",
+    "env"     = "dev"
+  }
+
+  url {
+    auto_hostname = false
+  }
+
+  build {
+    use "docker-pull" {
+      image = "hashicorpdemoapp/product-api"
+      tag   = "v0.0.19"
+      disable_entrypoint = true
+    }
+  }
+
+  deploy {
+    use "helm" {
+      name  = app.name
+      chart = "${path.app}/product-api/helm"
+
+      values = [
+        file(templatefile("${path.app}/product-api/helm/values.yaml")),
+      ]
+    }
+  }
+}
+
+app "payments" {
+  labels = {
+    "service" = "payments",
+    "env"     = "dev"
+  }
+
+  url {
+    auto_hostname = false
+  }
+
+  build {
+    use "docker-pull" {
+      image = "hashicorpdemoapp/payments"
+      tag   = "v0.0.12"
+      disable_entrypoint = true
+    }
+  }
+
+  deploy {
+    use "helm" {
+      name  = app.name
+      chart = "${path.app}/payments/helm"
+
+      values = [
+        file(templatefile("${path.app}/payments/helm/values.yaml")),
+      ]
+    }
+  }
+}
+
+app "frontend" {
+  labels = {
+    "service" = "frontend",
+    "env"     = "dev"
+  }
+
+  build {
+    use "docker-pull" {
+      image = "hashicorpdemoapp/frontend"
+      tag   = "v0.0.7"
+      disable_entrypoint = true
+    }
+  }
+
+  deploy {
+    use "helm" {
+      name  = app.name
+      chart = "${path.app}/frontend/helm"
+
+      values = [
+        file(templatefile("${path.app}/frontend/helm/values.yaml")),
+      ]
+    }
+  }
+}
