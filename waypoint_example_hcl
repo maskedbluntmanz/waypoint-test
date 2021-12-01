@@ -25,6 +25,11 @@ app "public-api" {
       name  = app.name
       chart = "${path.app}/public-api/helm"
 
+      set {
+        name  = "deployment.name"
+        value = "public-api"
+      }
+
       // We use a values file so we can set the entrypoint environment
       // variables into a rich YAML structure. This is easier than --set
       values = [
