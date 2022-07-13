@@ -1,4 +1,4 @@
-project = "hashicups"
+
 
 app "public-api" {
   labels = {
