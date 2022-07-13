@@ -130,6 +130,7 @@ app "frontend" {
     "env"     = "dev"
   }
 
+// diff
   build {
     use "docker-pull" {
       image = "hashicorpdemoapp/frontend"
